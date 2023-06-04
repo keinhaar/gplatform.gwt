@@ -13,8 +13,8 @@ import com.google.gwt.http.client.Response;
 import com.google.gwt.user.client.Window;
 
 import de.exware.gplatform.GPDocument;
-import de.exware.gplatform.GPWindow;
 import de.exware.gplatform.GPStorage;
+import de.exware.gplatform.GPWindow;
 import de.exware.gplatform.gwt.style.GwtGPStyleSheet;
 import de.exware.gplatform.gwt.timer.GwtGPTimer;
 import de.exware.gplatform.style.GPStyleSheet;
@@ -131,5 +131,12 @@ public class GwtGPlatform extends de.exware.gplatform.GPlatform
 	{
 		return new GwtGPStorage();
 	}
+
+    @Override
+    public native void clearSelection() 
+    /*-{
+        $wnd.getSelection().removeAllRanges();
+    }-*/;        
+
 }
 
