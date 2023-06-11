@@ -39,6 +39,8 @@ public class Build extends JavaBuilder
     {
         Utilities.delete(new File("dist"));
         Utilities.delete(new File("out"));
+        Utilities.delete(new File("tmp"));
+        new File("out").mkdir();
     }
     
     @Override

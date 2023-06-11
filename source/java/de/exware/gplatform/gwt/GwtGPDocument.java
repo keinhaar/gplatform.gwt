@@ -14,12 +14,14 @@ import de.exware.gplatform.element.GPCanvasElement;
 import de.exware.gplatform.element.GPImageElement;
 import de.exware.gplatform.element.GPInputElement;
 import de.exware.gplatform.element.GPOptionElement;
+import de.exware.gplatform.element.GPRangeElement;
 import de.exware.gplatform.element.GPSelectElement;
 import de.exware.gplatform.element.GPTextAreaElement;
 import de.exware.gplatform.gwt.element.GwtGPCanvasElement;
 import de.exware.gplatform.gwt.element.GwtGPImageElement;
 import de.exware.gplatform.gwt.element.GwtGPInputElement;
 import de.exware.gplatform.gwt.element.GwtGPOptionElement;
+import de.exware.gplatform.gwt.element.GwtGPRangeElement;
 import de.exware.gplatform.gwt.element.GwtGPSelectElement;
 import de.exware.gplatform.gwt.element.GwtGPTextAreaElement;
 
@@ -127,6 +129,14 @@ class GwtGPDocument implements de.exware.gplatform.GPDocument
     {
         CanvasElement iel = doc.createCanvasElement();
         GPCanvasElement element = new GwtGPCanvasElement(iel);
+        return element;
+    }
+
+    @Override
+    public GPRangeElement createRangeElement()
+    {
+        InputElement iel = (InputElement) doc.createElement("input");
+        GPRangeElement element = new GwtGPRangeElement(iel);
         return element;
     }
 }
