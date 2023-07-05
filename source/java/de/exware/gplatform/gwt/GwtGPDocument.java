@@ -3,23 +3,31 @@ package de.exware.gplatform.gwt;
 import com.google.gwt.dom.client.CanvasElement;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
+import com.google.gwt.dom.client.FormElement;
 import com.google.gwt.dom.client.ImageElement;
 import com.google.gwt.dom.client.InputElement;
+import com.google.gwt.dom.client.LabelElement;
 import com.google.gwt.dom.client.OptionElement;
 import com.google.gwt.dom.client.SelectElement;
 import com.google.gwt.dom.client.TextAreaElement;
 
 import de.exware.gplatform.GPElement;
 import de.exware.gplatform.element.GPCanvasElement;
+import de.exware.gplatform.element.GPFileInputElement;
+import de.exware.gplatform.element.GPFormElement;
 import de.exware.gplatform.element.GPImageElement;
 import de.exware.gplatform.element.GPInputElement;
+import de.exware.gplatform.element.GPLabelElement;
 import de.exware.gplatform.element.GPOptionElement;
 import de.exware.gplatform.element.GPRangeElement;
 import de.exware.gplatform.element.GPSelectElement;
 import de.exware.gplatform.element.GPTextAreaElement;
 import de.exware.gplatform.gwt.element.GwtGPCanvasElement;
+import de.exware.gplatform.gwt.element.GwtGPFileInputElement;
+import de.exware.gplatform.gwt.element.GwtGPFormElement;
 import de.exware.gplatform.gwt.element.GwtGPImageElement;
 import de.exware.gplatform.gwt.element.GwtGPInputElement;
+import de.exware.gplatform.gwt.element.GwtGPLabelElement;
 import de.exware.gplatform.gwt.element.GwtGPOptionElement;
 import de.exware.gplatform.gwt.element.GwtGPRangeElement;
 import de.exware.gplatform.gwt.element.GwtGPSelectElement;
@@ -137,6 +145,30 @@ class GwtGPDocument implements de.exware.gplatform.GPDocument
     {
         InputElement iel = (InputElement) doc.createElement("input");
         GPRangeElement element = new GwtGPRangeElement(iel);
+        return element;
+    }
+
+    @Override
+    public GPFormElement createFormElement()
+    {
+        FormElement iel = doc.createFormElement();
+        GPFormElement element = new GwtGPFormElement(iel);
+        return element;
+    }
+
+    @Override
+    public GPLabelElement createLabelElement()
+    {
+        LabelElement iel = doc.createLabelElement();
+        GPLabelElement element = new GwtGPLabelElement(iel);
+        return element;
+    }
+
+    @Override
+    public GPFileInputElement createFileInputElement()
+    {
+        InputElement iel = doc.createFileInputElement();
+        GPFileInputElement element = new GwtGPFileInputElement(iel);
         return element;
     }
 }

@@ -11,8 +11,8 @@ import com.google.gwt.user.client.EventListener;
 
 import de.exware.gplatform.GPElement;
 import de.exware.gplatform.GPStyle;
-import de.exware.gplatform.event.GPEventListener;
 import de.exware.gplatform.event.GPEvent.Type;
+import de.exware.gplatform.event.GPEventListener;
 import de.exware.gplatform.gwt.event.GwtGPEvent;
 
 public class GwtGPElement implements GPElement
@@ -244,6 +244,12 @@ public class GwtGPElement implements GPElement
     public int getPropertyInt(String name)
     {
         return element.getPropertyInt(name);
+    }
+
+    @Override
+    public Object getPropertyObject(String name)
+    {
+        return element.getPropertyObject(name);
     }
 
     @Override

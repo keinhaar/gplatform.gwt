@@ -25,10 +25,40 @@ public class GwtGPlatform extends de.exware.gplatform.GPlatform
     private static GPWindow window = new GwtGPWindow();
     private static GPDocument document = new GwtGPDocument(Document.get());
     private static CanvasElement measureCanvas = Document.get().createCanvasElement();
+    private static Browser browser = null;
     
     private GwtGPlatform()
-    {}
+    {
+        browser = determineBrowser();
+    }
     
+    private Browser determineBrowser()
+    {
+        Browser browser = Browser.UNDEFINED;
+        String browsername = Window.Navigator.getUserAgent();
+        if(browsername.indexOf("Firefox") >= 0)
+        {
+            browser = Browser.FIREFOX;
+        }
+        else if(browsername.indexOf("Chrome") >= 0)
+        {
+            browser = Browser.CHROME;
+        }
+        else if(browsername.indexOf("Edg") >= 0)
+        {
+            browser = Browser.EDGE;
+        }
+        else if(browsername.indexOf("Safari") >= 0)
+        {
+            browser = Browser.SAFARI;
+        }
+        else if(browsername.indexOf("Opera") >= 0 || browsername.indexOf("OPR") >= 0)
+        {
+            browser = Browser.OPERA;
+        }
+        return browser;
+    }
+
     @Override
     public GPDocument getDocument()
     {
@@ -136,7 +166,19 @@ public class GwtGPlatform extends de.exware.gplatform.GPlatform
     public native void clearSelection() 
     /*-{
         $wnd.getSelection().removeAllRanges();
-    }-*/;        
+    }-*/;
+
+    @Override
+    public Browser getBrowser()
+    {
+        return browser;
+    }
+
+    @Override
+    public VirtualMachineProvider getVirtualMachineProvider()
+    {
+        return VirtualMachineProvider.GWT;
+    }        
 
 }
 
