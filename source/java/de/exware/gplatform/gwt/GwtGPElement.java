@@ -269,4 +269,18 @@ public class GwtGPElement implements GPElement
     {
         return element.getClientWidth();
     }
+
+    @Override
+    public boolean hasClassName(String classname)
+    {
+        return element.hasClassName(classname);
+    }
+
+    @Override
+    native public boolean hasFocus() 
+    /*-{
+        var equal = $doc.activeElement == this.@de.exware.gplatform.gwt.GwtGPElement::element;
+        $wnd.alert("" + equal);
+        return $doc.hasFocus() && equal;
+    }-*/;
 }
