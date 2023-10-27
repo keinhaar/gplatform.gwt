@@ -235,6 +235,24 @@ public class GwtGPElement implements GPElement
     }
 
     @Override
+    public String getAttribute(String name)
+    {
+        return element.getAttribute(name);
+    }
+
+    @Override
+    public boolean hasAttribute(String name)
+    {
+        return element.hasAttribute(name);
+    }
+
+    @Override
+    public void removeAttribute(String name)
+    {
+        element.removeAttribute(name);
+    }
+    
+    @Override
     public String getPropertyString(String name)
     {
         return element.getPropertyString(name);
@@ -283,4 +301,5 @@ public class GwtGPElement implements GPElement
         $wnd.alert("" + equal);
         return $doc.hasFocus() && equal;
     }-*/;
+
 }
