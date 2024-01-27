@@ -190,16 +190,16 @@ public class GwtGPElement implements GPElement
     }
 
     @Override
-    public void insertAfter(GPElement before, GPElement after)
+    public void insertAfter(GPElement newChild, GPElement after)
     {
-        GwtGPElement gbefore = (GwtGPElement) before;
+        GwtGPElement gnewChild = (GwtGPElement) newChild;
         GwtGPElement gafter = (GwtGPElement) after;
         Element el = null;
         if(gafter != null)
         {
             el = gafter.getElement();
         }
-        element.insertAfter(gbefore.getElement(), el);
+        element.insertAfter(gnewChild.getElement(), el);
     }
 
     @Override

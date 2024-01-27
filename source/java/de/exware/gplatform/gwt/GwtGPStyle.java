@@ -24,4 +24,10 @@ class GwtGPStyle implements GPStyle
     {
         return style.getProperty(name);
     }
+
+    @Override
+    public void clearProperty(String name)
+    {
+        style.clearProperty(name);
+    }
 }
