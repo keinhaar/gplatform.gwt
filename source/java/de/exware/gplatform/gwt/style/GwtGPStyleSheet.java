@@ -12,6 +12,13 @@ public final class GwtGPStyleSheet extends JavaScriptObject implements GPStyleSh
     }
 
     @Override
+    public native void setEnabled(boolean enabled)
+    /*-{
+        this.disabled = ! enabled;
+    }-*/;
+    
+    
+    @Override
     public CSSRule getCSSRule(String selector)
     {
         CSSRule rule = null;

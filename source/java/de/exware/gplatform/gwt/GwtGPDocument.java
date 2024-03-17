@@ -171,4 +171,11 @@ class GwtGPDocument implements de.exware.gplatform.GPDocument
         GPFileInputElement element = new GwtGPFileInputElement(iel);
         return element;
     }
+
+    @Override
+    public GPElement getDocumentElement()
+    {
+        Element el = doc.getDocumentElement();
+        return new GwtGPElement(el);
+    }
 }
