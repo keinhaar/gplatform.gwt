@@ -138,7 +138,7 @@ public class GwtGPContext2d implements GPContext2d
     }
 
     @Override
-    public void drawImage(GPImageElement imageElement, double srcX, double srcY, double srcH, double srcW, double x, double y, double w, double h)
+    public void drawImage(GPImageElement imageElement, double srcX, double srcY, double srcW, double srcH, double x, double y, double w, double h)
     {
         GwtGPImageElement gpie = (GwtGPImageElement) imageElement;
         context2d.drawImage((ImageElement)gpie.getElement(), srcX, srcY, srcW, srcH, x, y, w, h);
