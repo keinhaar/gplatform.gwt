@@ -65,5 +65,13 @@ public final class GwtGPStyleSheet extends JavaScriptObject implements GPStyleSh
         var st = $doc.styleSheets.length;
         return st;            
     }-*/;
-    
+
+    public static native void add(String url)
+    /*-{        
+        var link = $doc.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = url;
+        $doc.head.appendChild(link);
+    }-*/;
 }

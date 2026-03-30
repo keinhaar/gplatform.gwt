@@ -112,9 +112,21 @@ public class GwtGPlatform extends de.exware.gplatform.GPlatform
     }
 
     @Override
+    public GPStyleSheet getStyleSheet(String name)
+    {
+        return GPStyleSheet.getStyleSheet(name);
+    }
+
+    @Override
     public int getStyleSheetCount()
     {
         return GwtGPStyleSheet.count();
+    }
+    
+    @Override
+    public void addStyleSheet(String url)
+    {
+        GwtGPStyleSheet.add(url);
     }
     
     @Override
