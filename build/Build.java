@@ -10,8 +10,10 @@ import de.exware.nobuto.utils.Utilities;
 public class Build extends JavaBuilder
 {
     private static final String PROJECTNAME = "de.exware.gplatform.gwt";
+    private static final String ARTIFACT_ID = "gplatform.gwt";
     
     private File jarFile = new File("dist/" + PROJECTNAME + ".jar");
+    private File sourceJarFile = new File("dist/" + PROJECTNAME + "-sources.jar");
     
     public Build() throws IOException, InterruptedException
     {
@@ -39,9 +41,19 @@ public class Build extends JavaBuilder
     {
         clean();
         dist();
-        Maven.getDefaultinstance().installJar(jarFile, "de.exware", PROJECTNAME, getVersion());
+        createSourceJar();
+        Maven.getDefaultinstance().installJar(jarFile, "de.exware", ARTIFACT_ID, getVersion());
+        Maven.getDefaultinstance().installSourceJar(sourceJarFile, "de.exware", ARTIFACT_ID, getVersion());
     }
 
+    public void createSourceJar() throws IOException
+    {
+        File file = new File("tmp/sourceJar");
+        Utilities.delete(file, true);
+        Utilities.copy("source/java", file, true);
+        jar(sourceJarFile.getAbsolutePath(), file, null);
+    }
+    
     @Override
     public void clean() throws IOException
     {
