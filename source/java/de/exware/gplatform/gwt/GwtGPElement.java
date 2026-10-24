@@ -302,4 +302,10 @@ public class GwtGPElement implements GPElement
         return $doc.hasFocus() && equal;
     }-*/;
 
+    @Override
+    public String getTagName()
+    {
+        return element.getTagName();
+    }
+
 }

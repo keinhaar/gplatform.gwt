@@ -28,7 +28,7 @@ public final class GwtGPStyleSheet extends JavaScriptObject implements GPStyleSh
         {
             CSSRule r = getCSSRule(i);
             String sel = r.getSelector();
-            if(sel.equals(selector))
+            if(sel != null && sel.equals(selector))
             {
                 rule = r;
                 break;
